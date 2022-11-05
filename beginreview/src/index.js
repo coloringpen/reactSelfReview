@@ -5,6 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// 대강, 얘가 특정 태그를 root태그로 만든다는 뜻인듯
+
+// ReactDOM.render(<App/>, document.getElementById('root'))
+// 브라우저에 있는 실제 돔 내부에 리액트 컴포넌트를 렌더링하겠다!
 root.render(
   <React.StrictMode>
     <App />

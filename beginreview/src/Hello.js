@@ -9,6 +9,6 @@ function Hello(props) {
 
 Hello.defaultProps = {
   name: '이름없음',
-};
+}; // 이렇게 컴포넌트 아래 별개로 디폴트 props설정해둘 수 있음
 
 export default Hello;
