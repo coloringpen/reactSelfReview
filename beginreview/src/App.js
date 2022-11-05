@@ -10,7 +10,7 @@ function App() {
       {/** 컴포넌트도 열리는 태그와 닫히는 태그로 구성될 수 있음
        * 이럴 때는 하위, 자식 태그들이 보이게 할지, 말지 잘 처리할 것
        */}
-      <Hello name="react" color="red" />
+      <Hello name="react" color="red" isSpecial={true} />
       <Hello color="pink" />
     </Wrapper>
   );
