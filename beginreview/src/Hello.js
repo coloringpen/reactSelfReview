@@ -23,7 +23,7 @@ function Hello(props) {
   );*/
   // jsx도 값처럼 쓸 수 있다는 것을 기억하기
   return (
-    <div style={color}>
+    <div style={{ color }}>
       {isSpecial ?? <b>*</b>}안녕하세요{name} {/* 첫번째 false반환하는 ?? */}
     </div>
   );
