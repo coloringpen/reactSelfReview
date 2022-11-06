@@ -27,6 +27,7 @@ function InputSample() {
     });
     nameInput.current.focus();
     // useRef로 생성한 ref객체의 current값이 원하는 DOM을 가리킴
+    // nameInput 즉, 생성된 ref객체 자체를 DOM이라고 생각하고 다뤄보기
   };
 
   return (
