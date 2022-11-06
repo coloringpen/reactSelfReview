@@ -1,19 +1,71 @@
-import React from 'react';
-import Hello from './Hello';
-import Wrapper from './Wrapper';
-import './App.css';
+import React, { useRef, useState } from 'react';
+import UserList from './UserList';
+import CreateUser from './CreateUser';
 
 function App() {
+  const [inputs, setInputs] = useState({
+    username: '',
+    email: '',
+  });
+
+  const { username, email } = inputs;
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+
+  const [users, setUsers] = useState([
+    {
+      id: 1,
+      username: 'velopert',
+      email: 'public.velopert@gamil.com',
+    },
+    {
+      id: 2,
+      username: 'tester',
+      email: 'tester@example.com',
+    },
+    {
+      id: 3,
+      username: 'Liz',
+      email: 'liz@example.com',
+    },
+  ]);
+
+  const nextId = useRef(4);
+
+  const onCreate = () => {
+    const user = {
+      id: nextId,
+      username,
+      email,
+    };
+
+    // Spread 문법 사용하기 setUsers([...users, user]);
+    setUsers(users.concat(user)); // concat메서드 사용하기
+
+    setInputs({
+      username: '',
+      email: '',
+    });
+
+    nextId.current += 1;
+  };
+
   return (
-    <Wrapper>
-      {' '}
-      {/** 컴포넌트도 열리는 태그와 닫히는 태그로 구성될 수 있음
-       * 이럴 때는 하위, 자식 태그들이 보이게 할지, 말지 잘 처리할 것
-       */}
-      <Hello name="react" color="red" isSpecial />{' '}
-      {/* 아무런 값을 넣어주지 않을때, true로 값이 들어가는 props */}
-      <Hello color="pink" />
-    </Wrapper>
+    <div>
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+      <UserList users={users} />
+    </div>
   );
 }
 
