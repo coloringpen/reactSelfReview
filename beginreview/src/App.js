@@ -66,7 +66,8 @@ function App() {
       />
       <UserList users={users} />
     </div>
-  );
+  ); // 실질적으로 렌더링할 틀들은 따로 컴포넌트를 만들고
+  // 전역적으로 바라봐야할 상태관리는 여기에서 한다
 }
 
 export default App;
